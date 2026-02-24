@@ -1,0 +1,73 @@
+<section id="contact" class="section-gap">
+  <div class="content-shell">
+    <app-section-heading
+      eyebrow="Contact CTA"
+      title="If you need an Angular-first MEAN engineer who ships safely, let's connect"
+      description="Fastest response channel: email. Include role expectations and hiring timeline for a relevant conversation."
+    ></app-section-heading>
+
+    <div class="mt-8 grid gap-8 lg:grid-cols-2">
+      <div appRevealOnScroll [appRevealOnScrollDelay]="40" class="surface-card space-y-6 p-6 md:p-8">
+        @for (channel of contactChannels; track channel.label) {
+          <div>
+            <p class="kicker">{{ channel.label }}</p>
+            <a
+              [href]="channel.href"
+              [appExternalLink]="channel.href.startsWith('http')"
+              class="contact-link mt-1 block text-lg font-semibold"
+            >
+              {{ channel.value }}
+            </a>
+          </div>
+        }
+      </div>
+
+      <form appRevealOnScroll [appRevealOnScrollDelay]="90" class="surface-card p-6 md:p-8" (ngSubmit)="submit()">
+        <div class="grid gap-5">
+          <label class="text-sm font-medium text-slate-700 dark:text-slate-200">
+            Name
+            <input
+              [(ngModel)]="model.name"
+              name="name"
+              type="text"
+              required
+              class="form-control mt-2 w-full rounded-lg border bg-transparent px-4 py-3 text-base"
+            />
+          </label>
+
+          <label class="text-sm font-medium text-slate-700 dark:text-slate-200">
+            Email
+            <input
+              [(ngModel)]="model.email"
+              name="email"
+              type="email"
+              required
+              class="form-control mt-2 w-full rounded-lg border bg-transparent px-4 py-3 text-base"
+            />
+          </label>
+
+          <label class="text-sm font-medium text-slate-700 dark:text-slate-200">
+            Message
+            <textarea
+              [(ngModel)]="model.message"
+              name="message"
+              required
+              class="form-control mt-2 h-32 w-full rounded-lg border bg-transparent px-4 py-3 text-base"
+            ></textarea>
+          </label>
+
+          <button
+            type="submit"
+            class="btn-premium btn-primary px-6 py-3 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          >
+            Send Message
+          </button>
+
+          @if (status() === 'success') {
+            <p class="text-sm text-emerald-600">Mail draft opened successfully. Send it to complete your outreach.</p>
+          }
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

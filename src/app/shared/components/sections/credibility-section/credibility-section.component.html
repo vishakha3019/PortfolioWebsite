@@ -1,0 +1,28 @@
+<section id="credibility" class="section-gap">
+  <div class="content-shell">
+    <app-section-heading
+      eyebrow="Credibility Snapshot"
+      title="Proof points recruiters and hiring managers validate first"
+      description="A concise risk-reduction summary: delivery record, measurable outcomes, and production behavior."
+    ></app-section-heading>
+
+    <div class="metric-grid mt-8">
+      @for (metric of metrics; track metric.label; let metricIndex = $index) {
+        <article appRevealOnScroll [appRevealOnScrollDelay]="metricIndex * 45" class="surface-card p-4">
+          <p class="text-2xl font-extrabold text-slate-900 dark:text-slate-100">{{ metric.value }}</p>
+          <h3 class="mt-1 text-sm font-semibold text-slate-700 dark:text-slate-200">{{ metric.label }}</h3>
+          <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">{{ metric.proof }}</p>
+        </article>
+      }
+    </div>
+
+    <div class="mt-8 grid gap-4 md:grid-cols-3">
+      @for (signal of trustSignals; track signal.title; let signalIndex = $index) {
+        <article appRevealOnScroll [appRevealOnScrollDelay]="signalIndex * 55" class="surface-card p-5">
+          <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100">{{ signal.title }}</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">{{ signal.detail }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

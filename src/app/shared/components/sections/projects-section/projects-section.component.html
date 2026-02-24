@@ -1,0 +1,47 @@
+<section id="case-studies" class="section-gap">
+  <div class="content-shell">
+    <app-section-heading
+      eyebrow="Case Studies"
+      title="Enterprise delivery stories in problem-action-result format"
+      description="Each project explains business context, implementation approach, and measurable outcome."
+    ></app-section-heading>
+
+    <div class="mt-8 grid gap-5">
+      @for (study of caseStudies; track study.name; let projectIndex = $index) {
+        <article
+          appRevealOnScroll
+          [appRevealOnScrollDelay]="projectIndex * 70"
+          [appInteractiveTilt]="3.2"
+          class="surface-card project-card interactive-tilt-shell p-6 md:p-7"
+        >
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">{{ study.name }}</h3>
+            <span class="rounded-md border border-slate-300/60 px-2 py-1 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:border-slate-600 dark:text-slate-300">{{ study.industry }}</span>
+          </div>
+
+          <div class="mt-5 grid gap-4 md:grid-cols-3">
+            <div>
+              <p class="kicker">Problem</p>
+              <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{{ study.problem }}</p>
+            </div>
+            <div>
+              <p class="kicker">Action</p>
+              <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{{ study.action }}</p>
+            </div>
+            <div>
+              <p class="kicker">Result</p>
+              <p class="mt-2 text-sm leading-relaxed text-slate-700 dark:text-slate-200">{{ study.result }}</p>
+            </div>
+          </div>
+
+          <p class="mt-5 text-xs font-medium text-slate-500 dark:text-slate-400">Stack: {{ study.stack | join }}</p>
+
+          <p class="project-meta mt-4 text-sm font-medium text-slate-700 dark:text-slate-200">
+            Outcome-focused delivery
+            <span class="project-arrow" aria-hidden="true">→</span>
+          </p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

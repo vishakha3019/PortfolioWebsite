@@ -1,0 +1,17 @@
+<section id="about" class="section-gap">
+  <div class="content-shell">
+    <app-section-heading
+      eyebrow="About"
+      [title]="aboutContent.title"
+      description="This section answers: what is it like to work with this engineer after hiring?"
+    ></app-section-heading>
+
+    <article appRevealOnScroll [appRevealOnScrollDelay]="40" class="surface-card mt-8 p-6 md:p-8">
+      <div class="grid gap-5 text-base leading-relaxed text-slate-600 dark:text-slate-300">
+        @for (paragraph of aboutContent.paragraphs; track paragraph) {
+          <p>{{ paragraph }}</p>
+        }
+      </div>
+    </article>
+  </div>
+</section>

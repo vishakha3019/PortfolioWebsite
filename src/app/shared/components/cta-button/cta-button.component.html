@@ -1,0 +1,8 @@
+<a
+  [href]="href()"
+  [class]="classes()"
+  [attr.target]="external() ? '_blank' : null"
+  [attr.rel]="external() ? 'noopener noreferrer' : null"
+>
+  <ng-content></ng-content>
+</a>

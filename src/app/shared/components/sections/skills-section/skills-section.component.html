@@ -1,0 +1,26 @@
+<section id="stack" class="section-gap">
+  <div class="content-shell">
+    <app-section-heading
+      eyebrow="Tech Stack"
+      title="Angular-first stack with enterprise delivery depth"
+      description="The capabilities I use to ship production-ready frontend systems."
+    ></app-section-heading>
+
+    <div class="mt-8 grid gap-4 md:grid-cols-2">
+      @for (category of skillCategories; track category.title; let stackIndex = $index) {
+        <article appRevealOnScroll [appRevealOnScrollDelay]="stackIndex * 55" class="surface-card p-6">
+          <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100">{{ category.title }}</h3>
+
+          <ul class="mt-4 grid gap-2 text-sm text-slate-600 dark:text-slate-300 sm:grid-cols-2">
+            @for (item of category.items; track item) {
+              <li class="flex items-center gap-2">
+                <span class="skill-dot h-1.5 w-1.5 rounded-full" aria-hidden="true"></span>
+                {{ item }}
+              </li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </div>
+</section>
