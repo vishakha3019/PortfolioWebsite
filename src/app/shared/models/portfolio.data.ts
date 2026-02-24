@@ -32,10 +32,10 @@ export const hero: HeroContent = {
   },
   secondaryCta: {
     label: 'Download Resume',
-    href: '/Vishakha_Resume.pdf',
+    href: 'Vishakha_Resume.pdf',
   },
   profileImage: {
-    src: '/assets/images/profile.jpg',
+    src: 'assets/images/profile.jpg',
     alt: 'Vishakha, Angular engineer focused on enterprise frontend systems.',
     width: 720,
     height: 720,
