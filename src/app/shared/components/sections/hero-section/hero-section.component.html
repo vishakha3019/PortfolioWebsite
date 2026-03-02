@@ -12,7 +12,7 @@
         </p>
 
         <div class="hero-stagger mt-8 flex flex-wrap gap-3" style="--hero-delay: 230ms">
-          <app-cta-button [href]="hero.primaryCta.href">{{ hero.primaryCta.label }}</app-cta-button>
+          <app-cta-button [href]="hero.primaryCta.href" [external]="hero.primaryCta.href.startsWith('http')">{{ hero.primaryCta.label }}</app-cta-button>
           <app-cta-button [href]="hero.secondaryCta.href" variant="secondary">{{ hero.secondaryCta.label }}</app-cta-button>
         </div>
 
